@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <b>Interpolacion</b>: (one way databinding) del modelo a la vista.
+                </div>
+                <div class="card-body">
+                    Nombre Completo: <b>{{ alumno.nombres}} {{alumno.apellidos}}</b><br>
+                    Curso: {{alumno.curso}}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <b>Vinculacion de Porpiedades</b>: [] (one way data bindings del modelo a la vista.)
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="">Nombre del alumno:</label>
+                        <input type="text" [value]="alumno.nombres" name="nombre" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header"> <b>Vinculacion de eventos</b> : $event.target.value (one way data binding) de
+                    la vista al modelo. </div>
+                <div class="card-body">
+                    <div class="form-group"> <label for="">Apellidos</label> <input type="text" class="form-control"
+                            (change)="alumno.apellidos = $event.target.value"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header"> <b>ngModule</b> : [(ngModel)] (two way data binding) vinculacion en dos
+                    sentidos. </div>
+                <div class="card-body">
+                    <div class="form-group"> <label for="">Curso</label> <input type="text" class="form-control"
+                            name="curso" [(ngModel)]="alumno.curso"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">Variables de referencia en platilla</div>
+                <div class="card-body">
+                    <div class="form-group"> <input type="text" class="form-control" placeholder="Mensaje"
+                            name="mensaje" #msg> </div> <button class="btn btn-secondary"
+                        (click)="onEnviarMensaje(msg)">Enviar mensaje</button> {{ mensaje }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6"> </div>
+    </div>
+</div>

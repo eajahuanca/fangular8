@@ -1,0 +1,46 @@
+<div class="row mt-2">
+    <div class="row">
+        <div class="col-md-12">
+            <input type="text" class="form-control col-md-12 ml-4 mb-2" placeholder="Buscar">
+        </div>
+    </div>
+    <div class="col-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">CI</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Curso</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alumno of alumnos">
+                    <td>{{ alumno.ci }}</td>
+                    <td>
+                        <div *ngIf="!editar;else divNombre"> {{ alumno.nombre }} </div>
+                        <ng-template #divNombre> <input type="text" class="form-control form-control-sm"
+                                [value]="alumno.nombre" [(ngModel)]="alumno.nombre"> </ng-template>
+                    </td>
+                    <td>
+                        <div *ngIf="!editar;else divApellido"> {{ alumno.apellidos }} </div>
+                        <ng-template #divApellido> <input type="text" class="form-control form-control-sm"
+                                [value]="alumno.apellidos" [(ngModel)]="alumno.apellidos"> </ng-template>
+                    </td>
+                    <td>
+                        <div *ngIf="!editar;else divCurso"> {{ alumno.curso }} </div>
+                        <ng-template #divCurso> <select [value]="alumno.curso" [(ngModel)]="alumno.curso" name="uso_garantia" class="form-control">
+                                <option *ngFor="let curso of cursos"> {{ curso }} </option>
+                            </select> </ng-template>
+                    </td>
+                    <td>
+                        <button class="btn btn-light" (click)="editar=true">Editar</button>
+                        <button *ngIf="editar" class="btn btn-success" (click)="guardar(alumno.ci)">Guardar</button>
+                        <button class="btn btn-danger" (click)="eliminar(alumno.ci)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

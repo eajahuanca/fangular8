@@ -1,0 +1,6 @@
+angularLab/*/node_modules/*
+bootstrapLab/*/node_modules/*
+labs/*/node_modules/*
+labs/*/*/node_modules/*
+serviciosnode/*/node_modules/*
+material/*

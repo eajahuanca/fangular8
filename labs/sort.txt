@@ -1,0 +1,18 @@
+let objs = [
+  { nombre: 'a', edad: 25 },
+  { nombre: 'b', edad: 30 },
+  { nombre: 'c', edad: 70 },
+  { nombre: 'd', edad: 12 },
+  // {nombre:'e',edad:},
+  // {nombre:'f',edad:},
+]
+
+for (let i = 0; i < objs.length - 1; i++) {
+  let cur = objs[i];
+  let next = objs[i + 1];
+  if (next.edad < cur.edad) {
+    objs[i] = next;
+    objs[i + 1] = cur;
+    i = -1;
+  }
+}
