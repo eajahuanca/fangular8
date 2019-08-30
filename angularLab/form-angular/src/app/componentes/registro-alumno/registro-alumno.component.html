@@ -1,0 +1,46 @@
+<div class="row mt-2">
+    <div class="col-10">
+        <div class="p-4">
+            <form [formGroup]="alumnoForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="ingrese nombre">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="apellido" class="form-control" placeholder="ingrese apellido">
+                </div>
+                <div formGroupName="direccion" class="mt-2 bd-highlight">
+                    <div class="form-group">
+                        <input type="text" formControlName="calle" class="form-control" placeholder="calle">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="zona" class="form-control" placeholder="zona">
+                    </div>
+                    <div class="form group">
+                        <input type="text" formControlName="ciudad" class="form-control" placeholder="ciudad">
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row bd-highlight mb-3">
+                    <div class="p-2 bd-highlighty">
+                        <button type="button" class="btn btn-info" [disabled]="!alumnoForm.valid">Registrar</button>
+                    </div>
+                    <div class="p-2 bd-highlighty">
+                        <button type="button" class="btn btn-secondary" (click)="actualizarAlumno()">Actualizar</button>
+                    </div>
+                    <div class="p-2 bd-highlighty">
+                        <button type="button" class="btn btn-ligth" (click)="revert()">Limpiar</button>
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <p>
+                    form valores: {{ alumnoForm.value | json }}
+                </p>
+                <p>
+                    form estado: {{ alumnoForm.status }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
